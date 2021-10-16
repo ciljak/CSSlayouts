@@ -1,0 +1,38 @@
+body {
+    color: #fff;
+    font-family: Futura;
+    padding: 20px;
+}
+
+h1 {
+    background-color: #A4036F;
+}
+
+h3 {
+    background-color: #048BA8;
+}
+
+.container {
+    border: 10px solid black;
+    border-top-color: rgb(99, 99, 99); /* this is a way how to style only one side of border along your needs */
+    border-bottom-style: dotted;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+#one {
+    background-color: #16DB93;
+}
+
+ul {
+    background-color: #EFEA5A;
+}
+
+#two {
+    background-color: #FE5E41;
+}
+
+a {
+    background-color: #E6F6C2;
+    color: #000;
+}
