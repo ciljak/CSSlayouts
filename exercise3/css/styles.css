@@ -1,0 +1,110 @@
+* {
+    font-family: Helvetica;
+    font-size: 1.4em;
+    color: white;
+    text-align: center;
+}
+/*
+Notice how I used nth-child?  Instead of giving each nested div a separate class name, which would be really time-consuming, 
+using nth-child allows us to just indicate which nested div we want to change. In our code, we've:
+
+indicated our container div (  .container  )
+
+then named the nested element (in this case a  div  )
+
+added  :nth-child( ) 
+
+then specified which nested div we want via the number in the parenthesis. 
+
+In other words,  .container div:nth-child(5)  refers to the 5th nested div in our container div.  
+*/
+
+.container div:nth-child(1), div:nth-child(6) {
+    background-color: #B8336A;
+}
+
+.container div:nth-child(2), div:nth-child(7) {
+    background-color: #726DA8;
+}
+
+.container div:nth-child(3), div:nth-child(8) {
+    background-color: #7D8CC4;
+}
+
+.container div:nth-child(4) {
+    background-color: #A0D2DB;
+}
+
+.container div:nth-child(5) {
+    background-color: #C490D1;
+}
+
+
+/* working with css grid */
+.container {
+    display: grid;
+
+    grid-template-columns: 1fr 4fr 1fr; /* or 1,5fr fraction of containing block */
+
+    /* Set columns depending on screen size
+    "Repeat as many columns that will fit on a screen. Each column should be a minimum of 100px wide and a maximum of 1fr wide."
+
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    The result of this code is much more apparent when you visualize the code in the browser and resize the window. 
+    Play around with it in this CodePen: https://codepen.io/eclairereese/pen/JZPZWo
+    */
+
+    grid-template-rows: repeat(3, 5em);
+    /* 
+    A fourth row would be created, and you'd have to modify your CSS code to add a height for that new row! 
+    Sometimes it's hard to know how many rows you'll have in advance. Setting row-by-row values is very limiting and inflexible.
+
+    That's why you can set a default row value that will apply for row numbers you haven't specified. This property is called  grid-auto-rows  .
+   */
+
+    grid-auto-rows: 3em;
+
+    /* Grid gaps
+    n order to set gaps between your grid elements, use a simple property called grid-gap. 
+    Set one value if you want the gap to be the same between rows and columns. Otherwise, set two values 
+    (the first for the gap between rows, the second for the gap between columns).
+    */
+
+    grid-gap: 10px;
+}
+
+/* repeat function in process of creating grid layout with CSS grid */
+/*
+.container {
+    grid-template: 1.6em 1.6em 1.6em / 1fr 1fr 1fr;
+
+    /* or using the repeat function:*/ /*
+
+    grid-template: repeat(3, 1.6em) / repeat(3, 1fr);
+} 
+*/
+
+/* Define grid element height and width */
+
+#one {
+    grid-column: 1 / 4; /* make first row cells span across whole row */
+
+    /*
+    #one {
+    grid-column: 1 / span 3;
+    }
+
+    Lastly, it's sometimes tough to know how many columns or rows you'll have, especially 
+    if your content changes all the time. You can also use negative numerical values to ensure 
+    that your element always spans the full number of rows, for example. The last row or column line will always be line "-1".
+
+    #one {
+        grid-column: 1 / -1;
+    }
+
+    */
+}
+
+#two {
+    grid-row: 2 / 4;
+ }
